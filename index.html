@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fête de Famille du Rivau — 3 &amp; 4 Octobre 2026</title>
+<style>
+  :root{
+    --bordeaux:#3e5266;
+    --bordeaux-dark:#293845;
+    --cream:#f7f9fa;
+    --cream-dark:#eaeff2;
+    --ink:#2b3238;
+    --gold:#8ba3b5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Georgia','Times New Roman',serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  a{color:var(--bordeaux);}
+  .container{max-width:960px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--bordeaux);
+    box-shadow:0 2px 10px rgba(0,0,0,.15);
+  }
+  nav .container{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 24px;flex-wrap:wrap;gap:10px;
+  }
+  nav .brand{color:var(--cream);font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;font-weight:bold;}
+  nav ul{list-style:none;display:flex;gap:22px;flex-wrap:wrap;}
+  nav a{color:var(--cream-dark);text-decoration:none;font-size:.92rem;letter-spacing:.03em;text-transform:uppercase;transition:color .2s;}
+  nav a:hover{color:var(--gold);}
+
+  /* HERO */
+  header.hero{
+    background:
+      linear-gradient(rgba(41,56,69,.75),rgba(41,56,69,.85)),
+      radial-gradient(circle at 50% 20%, #4d637a, #293845 70%);
+    color:var(--cream);
+    text-align:center;
+    padding:90px 24px 80px;
+    position:relative;
+  }
+  .crest{
+    width:64px;height:auto;margin:0 auto 22px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .crest img{width:100%;height:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35));}
+  header.hero h1{
+    font-size:2.6rem;
+    letter-spacing:.02em;
+    margin-bottom:14px;
+    font-weight:normal;
+  }
+  header.hero .sub{
+    font-size:1.15rem;
+    color:var(--gold);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:26px;
+  }
+  header.hero .dates{
+    font-size:1.5rem;
+    font-family:'Baskerville', Georgia, serif;
+    font-style:italic;
+    margin-bottom:10px;
+  }
+  header.hero .place{
+    font-size:1.05rem;
+    opacity:.9;
+  }
+  .divider{
+    width:80px;height:2px;
+    background:var(--gold);
+    margin:26px auto;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--bordeaux-dark);
+    padding:14px 34px;
+    text-decoration:none;
+    border-radius:2px;
+    font-size:.95rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:bold;
+    margin-top:10px;
+    transition:transform .2s, box-shadow .2s;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.3);}
+
+  /* SECTIONS */
+  section{padding:70px 0;}
+  section.alt{background:var(--cream-dark);}
+  h2{
+    text-align:center;
+    font-size:1.9rem;
+    font-weight:normal;
+    color:var(--bordeaux);
+    margin-bottom:8px;
+  }
+  h2 + .divider{margin-top:0;}
+  .lead{
+    text-align:center;
+    max-width:680px;
+    margin:0 auto 40px;
+    font-size:1.05rem;
+    color:#4a3f38;
+  }
+
+  /* CHATEAU */
+  .chateau-section{padding:50px 0 60px;}
+  .chateau-img{
+    display:block;margin:0 auto;
+    max-width:700px;width:100%;height:auto;
+  }
+  .chateau-caption{
+    text-align:center;font-style:italic;
+    color:var(--bordeaux);margin-top:18px;
+    font-size:.95rem;max-width:560px;
+    margin-left:auto;margin-right:auto;
+  }
+
+  /* HISTOIRE */
+  .histoire p{max-width:720px;margin:0 auto 18px;font-size:1.05rem;}
+  .histoire strong{color:var(--bordeaux);}
+  .lineage{
+    display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+    margin-top:34px;
+  }
+  .lineage .branch{
+    background:#fff;
+    border:1px solid var(--cream-dark);
+    border-top:3px solid var(--gold);
+    padding:22px 26px;
+    max-width:280px;
+    text-align:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.05);
+  }
+  .lineage .branch h3{font-size:1rem;color:var(--bordeaux);margin-bottom:8px;letter-spacing:.02em;font-weight:normal;font-style:italic;}
+  .lineage .branch p{font-size:.95rem;color:#4a3f38;}
+
+  /* PROGRAMME */
+  .programme-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:36px;max-width:920px;margin:0 auto;
+  }
+  .day-card{background:#fff;border:1px solid var(--cream-dark);padding:28px 26px 8px;}
+  .day-card h3{
+    text-align:center;color:var(--bordeaux);
+    font-size:1.25rem;font-weight:normal;font-style:italic;
+    padding-bottom:16px;margin-bottom:22px;
+    border-bottom:2px solid var(--gold);
+  }
+  .time-block{border-left:3px solid var(--gold);padding-left:16px;margin-bottom:24px;}
+  .time-block .time{
+    font-weight:bold;color:var(--bordeaux);
+    font-size:.92rem;letter-spacing:.02em;margin-bottom:5px;
+  }
+  .time-block h4{font-size:1rem;font-weight:bold;color:var(--ink);margin-bottom:6px;}
+  .time-block .tenue{font-size:.85rem;font-style:italic;color:var(--bordeaux);margin-bottom:8px;}
+  .time-block ul{list-style:none;}
+  .time-block ul li{
+    font-size:.9rem;color:#4a4f55;margin-bottom:4px;
+    position:relative;padding-left:14px;
+  }
+  .time-block ul li::before{content:"–";position:absolute;left:0;color:var(--gold);}
+  .programme-note{
+    max-width:760px;margin:36px auto 0;
+    background:#fff;border:1px solid var(--cream-dark);
+    padding:16px 22px;text-align:center;
+    font-size:.9rem;font-style:italic;color:#6b5d53;
+  }
+  @media(max-width:700px){
+    .programme-grid{grid-template-columns:1fr;}
+  }
+
+  /* VIDEO */
+  .video-wrap{
+    max-width:800px;margin:0 auto;
+    position:relative;padding-top:44.5%;
+    border:6px solid #fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+  }
+  .video-wrap iframe{
+    position:absolute;top:0;left:0;width:100%;height:100%;border:0;
+  }
+
+  /* INFOS PRATIQUES */
+  .infos-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:28px;max-width:840px;margin:0 auto;
+  }
+  .info-card{
+    background:#fff;
+    padding:30px 24px;
+    text-align:center;
+    border:1px solid var(--cream-dark);
+  }
+  .info-card .icon{font-size:1.8rem;margin-bottom:12px;color:var(--gold);}
+  .info-card h3{font-size:1rem;text-transform:uppercase;letter-spacing:.05em;color:var(--bordeaux);margin-bottom:10px;font-weight:normal;}
+  .info-card p{font-size:.95rem;color:#4a3f38;}
+
+  /* RSVP */
+  .rsvp-box{
+    max-width:640px;margin:0 auto;
+    text-align:center;
+    background:var(--bordeaux);
+    color:var(--cream);
+    padding:50px 40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+  }
+  .rsvp-box h2{color:var(--cream);}
+  .rsvp-box .divider{background:var(--gold);}
+  .rsvp-box p{margin-bottom:26px;font-size:1.02rem;}
+  .rsvp-box .deadline{
+    display:inline-block;margin-top:22px;font-size:.85rem;
+    color:var(--gold);letter-spacing:.03em;text-transform:uppercase;
+  }
+  .rsvp-note{
+    max-width:600px;margin:26px auto 0;text-align:center;
+    font-size:.9rem;font-style:italic;color:#6b5d53;
+  }
+
+  /* CONTACT */
+  .contacts{
+    display:flex;justify-content:center;gap:50px;flex-wrap:wrap;
+    margin-top:20px;
+  }
+  .contact-card{text-align:center;max-width:260px;}
+  .contact-card h3{color:var(--bordeaux);font-size:1.1rem;font-weight:normal;margin-bottom:10px;}
+  .contact-card p{font-size:.95rem;margin-bottom:4px;}
+
+  footer{
+    background:var(--bordeaux-dark);
+    color:var(--cream-dark);
+    text-align:center;
+    padding:36px 24px;
+    font-size:.85rem;
+    letter-spacing:.02em;
+  }
+  footer .crest{width:36px;height:auto;margin:0 auto 14px;}
+  footer a{color:var(--gold);}
+
+  @media(max-width:640px){
+    header.hero{padding:70px 20px 60px;}
+    header.hero h1{font-size:2rem;}
+    section{padding:50px 0;}
+    nav ul{gap:14px;justify-content:center;width:100%;}
+  }
+
+  /* PASSWORD GATE */
+  #site-content{display:none;}
+  #password-gate{
+    position:fixed;inset:0;z-index:1000;
+    background:
+      linear-gradient(rgba(41,56,69,.85),rgba(41,56,69,.92)),
+      radial-gradient(circle at 50% 20%, #4d637a, #293845 70%);
+    display:flex;align-items:center;justify-content:center;
+    padding:24px;
+  }
+  .gate-box{
+    background:var(--cream);
+    max-width:380px;width:100%;
+    padding:44px 36px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+  }
+  .gate-box .crest{width:56px;height:auto;margin:0 auto 18px;}
+  .gate-box .crest img{width:100%;height:auto;}
+  .gate-box h2{font-size:1.3rem;color:var(--bordeaux);font-weight:normal;margin-bottom:6px;}
+  .gate-box p.gate-sub{font-size:.9rem;color:#5c6b76;margin-bottom:24px;}
+  .gate-box input[type="password"]{
+    width:100%;padding:12px 14px;
+    border:1px solid var(--cream-dark);
+    background:#fff;
+    font-family:inherit;font-size:1rem;
+    margin-bottom:14px;text-align:center;
+    letter-spacing:.05em;
+  }
+  .gate-box input[type="password"]:focus{outline:2px solid var(--gold);}
+  .gate-box .btn{width:100%;border:none;cursor:pointer;font-family:inherit;}
+  .gate-box .gate-error{
+    color:#a13d3d;font-size:.85rem;margin-top:12px;
+    display:none;
+  }
+  .gate-box .gate-error.show{display:block;}
+</style>
+</head>
+<body>
+
+<div id="password-gate">
+  <div class="gate-box">
+    <div class="crest"><img src="assets/blason.png" alt="Blason de la famille du Rivau"></div>
+    <h2>Fête de Famille du Rivau</h2>
+    <p class="gate-sub">Ce site est réservé à la famille. Merci de saisir le mot de passe communiqué par email.</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="gate-password" placeholder="Mot de passe" required>
+      <button type="submit" class="btn">Accéder au site</button>
+      <p class="gate-error" id="gate-error">Mot de passe incorrect, merci de réessayer.</p>
+    </form>
+  </div>
+</div>
+
+<div id="site-content">
+
+<nav>
+  <div class="container">
+    <div class="brand">Famille du Rivau</div>
+    <ul>
+      <li><a href="#histoire">Histoire</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#video">Vidéo</a></li>
+      <li><a href="#infos">Infos pratiques</a></li>
+      <li><a href="#rsvp">Réponse</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="crest" aria-hidden="true">
+      <img src="assets/blason.png" alt="Blason de la famille du Rivau">
+    </div>
+    <div class="sub">Vous êtes cordialement invités</div>
+    <h1>Grande Fête de Famille du Rivau</h1>
+    <div class="dates">Samedi 3 &amp; Dimanche 4 Octobre 2026</div>
+    <div class="place">Château de Brusson — Soulitré, Sarthe</div>
+    <div class="divider"></div>
+    <a href="#rsvp" class="btn">Je réponds à l'invitation</a>
+  </div>
+</header>
+
+<section id="chateau" class="chateau-section">
+  <div class="container">
+    <img src="assets/chateau.png" alt="Château de Brusson" class="chateau-img">
+    <p class="chateau-caption">Le Château de Brusson, à Soulitré — aimablement mis à disposition par Jean-Baptiste et Guillemette du Fayet de la Tour</p>
+  </div>
+</section>
+
+<section id="histoire" class="histoire">
+  <div class="container">
+    <h2>Une réunion de famille attendue</h2>
+    <div class="divider"></div>
+    <p>
+      Chers cousines, cousins, nièces et neveux, <strong>Eloi</strong> et <strong>Hugues du Rivau</strong>
+      vous remercient d'avoir facilité le recensement des descendants de nos aïeuls
+      <strong>Léon du Rivau</strong> et <strong>Mary Jackson</strong>.
+    </p>
+    <p>
+      Cela a permis la compilation, presque exhaustive à ce jour, des coordonnées de
+      plus de <strong>450 descendants</strong> de nos deux branches familiales. Une grande réunion
+      de tous ces descendants se prépare, aimablement accueillie au Château de Brusson par ses
+      propriétaires, <strong>Jean-Baptiste et Guillemette du Fayet de la Tour</strong>.
+    </p>
+    <div class="lineage">
+      <div class="branch">
+        <h3>Branche Louis</h3>
+        <p>Louis du Rivau<br>&amp; Noëmi Feray</p>
+      </div>
+      <div class="branch">
+        <h3>Branche Ferdinand</h3>
+        <p>Ferdinand du Rivau<br>&amp; Marcelle Rigaud</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programme" class="alt">
+  <div class="container">
+    <h2>Programme du week-end</h2>
+    <div class="divider"></div>
+    <div class="programme-grid">
+
+      <div class="day-card">
+        <h3>Samedi 3 octobre</h3>
+
+        <div class="time-block">
+          <div class="time">10h00 – 10h30</div>
+          <h4>Accueil des participants</h4>
+          <ul>
+            <li>Stationnement sur parking balisé de Brusson</li>
+            <li>Remise de badges/épinglettes</li>
+            <li>Rencontre autour d'un café</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <div class="time">10h30</div>
+          <h4>« Les » du Rivau</h4>
+          <ul>
+            <li>Mot d'accueil : organisation générale des journées</li>
+            <li>Présentation des branches Louis et Noëmi du Rivau : Jean, Jacques, Fernand, Henri, Christian, Simone</li>
+            <li>Présentation des branches Ferdinand et Marcelle du Rivau : Maurice, Charles, Mathilde (Doulcet), Jacqueline (de Roquancourt)</li>
+            <li>Brève histoire de la famille</li>
+            <li>Présentation des archives numérisées et disposition d'accès</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <div class="time">12h30</div>
+          <h4>Déjeuner campagnard</h4>
+          <ul>
+            <li>Pique-nique tiré de son havresac</li>
+            <li>Méli-mélo des participants</li>
+            <li>Boissons et café fournis</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <div class="time">14h30 – 18h00</div>
+          <h4>Après-midi festif</h4>
+          <ul>
+            <li>Photographie générale</li>
+            <li>Diaporama souvenir et rassemblement de voitures familiales d'époque</li>
+            <li>Voltige aérienne d'un aéronef de légende (P.A.M.A.) du Rivau-Botali</li>
+            <li>Jeux conviviaux</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <div class="time">18h00 – 19h30</div>
+          <h4>Temps libre</h4>
+        </div>
+
+        <div class="time-block">
+          <div class="time">20h00 à l'aube</div>
+          <h4>Soirée de Gala</h4>
+          <p class="tenue">Tenue suggérée : la famille à la « belle époque » et les « années folles » !</p>
+          <ul>
+            <li>Cocktail et buffet dînatoire à la sarthoise avec cochon grillé</li>
+            <li>Interventions festives inopinées</li>
+            <li>Dancefloor avec DJ</li>
+            <li>Feux d'artifice</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <h3>Dimanche 4 octobre</h3>
+
+        <div class="time-block">
+          <div class="time">11h00</div>
+          <h4>Messe pour la famille</h4>
+          <ul>
+            <li>Église Saint-Martin de Soulitré, célébrée par le R.P. Philippe-Marie Margelidon o.p.</li>
+            <li>Visite de la Chapelle Sainte-Anne et enclos familial au cimetière</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <div class="time">13h00</div>
+          <h4>Brunch / déjeuner</h4>
+          <ul>
+            <li>Fourni</li>
+          </ul>
+        </div>
+
+        <div class="time-block">
+          <div class="time">15h00 et plus</div>
+          <h4>Promenade dans les bois</h4>
+          <ul>
+            <li>Fin des festivités</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="programme-note">Nota&nbsp;: plan d'eau non sécurisé, les enfants restent sous la surveillance de leurs parents.</p>
+  </div>
+</section>
+
+<section id="video">
+  <div class="container">
+    <h2>Découvrez l'événement en vidéo</h2>
+    <div class="divider"></div>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/Dm1BHLLa0gc" title="Fête de Famille du Rivau" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="infos" class="alt">
+  <div class="container">
+    <h2>Infos pratiques</h2>
+    <div class="divider"></div>
+    <div class="infos-grid">
+      <div class="info-card">
+        <div class="icon">&#128197;</div>
+        <h3>Dates</h3>
+        <p>Samedi 3 &amp; dimanche 4 octobre 2026</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">&#127960;</div>
+        <h3>Lieu</h3>
+        <p>Château de Brusson<br>Soulitré (Sarthe)</p>
+      </div>
+      <div class="info-card">
+        <div class="icon">&#128248;</div>
+        <h3>Pour vous identifier</h3>
+        <p>Merci d'envoyer une photo (format carte d'identité) à Eloi ou Hugues</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="container">
+    <div class="rsvp-box">
+      <h2>Confirmez votre présence</h2>
+      <div class="divider"></div>
+      <p>
+        Merci d'indiquer votre réponse — présent, absent, ou incertain — via le
+        questionnaire en ligne, afin de nous aider à organiser au mieux cette grande réunion.
+      </p>
+      <a href="https://forms.gle/VVZ7qxZEcv7Y3PKT6" target="_blank" rel="noopener" class="btn">Répondre au questionnaire</a>
+      <br>
+      <span class="deadline">Réponse souhaitée avant le 31 janvier 2026</span>
+    </div>
+    <p class="rsvp-note">Vous n'avez pas encore répondu ? Il n'est pas trop tard : contactez directement Eloi ou Hugues ci-dessous.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="divider"></div>
+    <div class="contacts">
+      <div class="contact-card">
+        <h3>Hugues du Rivau</h3>
+        <p>06 09 70 92 98</p>
+        <p><a href="mailto:hugues.du-rivau@orange.fr">hugues.du-rivau@orange.fr</a></p>
+      </div>
+      <div class="contact-card">
+        <h3>Eloi du Rivau</h3>
+        <p>06 07 48 51 51</p>
+        <p><a href="mailto:eloidurivau@wanadoo.fr">eloidurivau@wanadoo.fr</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="crest" aria-hidden="true">
+    <img src="assets/blason.png" alt="Blason de la famille du Rivau">
+  </div>
+  <p>Famille du Rivau — Descendants de Léon du Rivau &amp; Mary Jackson</p>
+  <p>Château de Brusson, Soulitré · 3 &amp; 4 octobre 2026</p>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var CORRECT_HASH = '4f92b9d94bd96a88edab715c7b019dea01c0124ecdfc6f82cbe2294c80f5f08a';
+  var STORAGE_KEY = 'rivau_unlocked';
+  var gate = document.getElementById('password-gate');
+  var content = document.getElementById('site-content');
+  var form = document.getElementById('gate-form');
+  var input = document.getElementById('gate-password');
+  var error = document.getElementById('gate-error');
+
+  function sha256(str){
+    var buf = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', buf).then(function(hash){
+      return Array.from(new Uint8Array(hash)).map(function(b){
+        return b.toString(16).padStart(2,'0');
+      }).join('');
+    });
+  }
+
+  function unlock(){
+    gate.style.display = 'none';
+    content.style.display = 'block';
+  }
+
+  if(localStorage.getItem(STORAGE_KEY) === '1'){
+    unlock();
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    sha256(input.value.trim()).then(function(hash){
+      if(hash === CORRECT_HASH){
+        localStorage.setItem(STORAGE_KEY, '1');
+        error.classList.remove('show');
+        unlock();
+      } else {
+        error.classList.add('show');
+        input.value = '';
+        input.focus();
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
